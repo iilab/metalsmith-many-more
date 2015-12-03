@@ -21,14 +21,9 @@ module.exports = function (generated_files) {
                 files[path].contents = new Buffer("");
             }
             if (generated_file.metadata) {
-                console.log(files[path])
-                console.log(generated_file.metadata)
                 Object.assign(files[path], generated_file.metadata)
-                console.log(files[path])
             }
         });
-
-        console.log(files)
 
         done();
     };
