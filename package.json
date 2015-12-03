@@ -1,0 +1,31 @@
+{
+  "name": "metalsmith-generate",
+  "version": "0.0.1",
+  "description": "Metalsmith plugin to generate files.",
+  "main": "index.js",
+  "scripts": {
+    "test": "grunt test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/iilab/metalsmith-generate.git"
+  },
+  "keywords": [
+    "metalsmith",
+    "plugin"
+  ],
+  "author": "Jun Matsushita <jun@iilab.org>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/iilab/metalsmith-generate/issues"
+  },
+  "homepage": "https://github.com/iilab/metalsmith-generate",
+  "dependencies": {
+  },
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-contrib-jshint": "^0.10.0",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-mocha-test": "^0.11.0"
+  }
+}
