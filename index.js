@@ -1,3 +1,5 @@
+var Matcher = require('minimatch').Minimatch;
+
 /**
  * Creates files at specified path with their metadata
  *
@@ -7,24 +9,27 @@
  *
  * @return {Function}
  */
-module.exports = function (generated_files) {
-    var generated_files = generated_files || [];
+module.exports = function (rule) {
+    var rule = rule || [];
 
     return function (files, metalsmith, done) {
 
-        generated_files.forEach(function (generated_file) {
-            var path = generated_file.path;
-            if (!files[path]) files[path] = {}
-            if (generated_file.contents) {
-                files[path].contents = new Buffer(generated_file.contents);
-            } else {
-                files[path].contents = new Buffer("");
-            }
-            if (generated_file.metadata) {
-                Object.assign(files[path], generated_file.metadata)
+        var separator = rule.separator || "<!--more-->";
+        var key = rule.key || "children";
+        var trim = rule.trim || false;
+        var json = rule.json || false;
+        var matcher = new Matcher(rule.pattern);
+
+        Object.keys(files).forEach(function(file) {
+            if (matcher.match(file)) {
+                f = files[file].contents.toString()
+                files[file][key] = f.split(separator);
+                if (trim) files[file][key].forEach(function (v,k) { files[file][key][k] = v.replace(/^\s+|\s+$/g, ''); })
+                if (json) files[file][key].forEach(function (v,k) { 
+                    files[file][key][k] = v ? JSON.stringify(v) : v; 
+                })
             }
         });
-
         done();
     };
 };

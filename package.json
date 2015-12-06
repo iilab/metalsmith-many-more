@@ -1,14 +1,14 @@
 {
-  "name": "metalsmith-generate",
+  "name": "metalsmith-many-more",
   "version": "0.0.1",
-  "description": "Metalsmith plugin to generate files.",
+  "description": "Metalsmith plugin to split content into several metadata fields.",
   "main": "index.js",
   "scripts": {
     "test": "grunt test"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/iilab/metalsmith-generate.git"
+    "url": "git://github.com/iilab/metalsmith-many-more.git"
   },
   "keywords": [
     "metalsmith",
@@ -17,10 +17,11 @@
   "author": "Jun Matsushita <jun@iilab.org>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/iilab/metalsmith-generate/issues"
+    "url": "https://github.com/iilab/metalsmith-many-more/issues"
   },
-  "homepage": "https://github.com/iilab/metalsmith-generate",
+  "homepage": "https://github.com/iilab/metalsmith-many-more",
   "dependencies": {
+    "minimatch": "^3.0.0"
   },
   "devDependencies": {
     "grunt": "^0.4.5",

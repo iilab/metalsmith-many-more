@@ -1,38 +1,28 @@
-# metalsmith-generate
+# metalsmith-many-more
 
-Metalsmith plugin to generate files
+Metalsmith plugin to split content into several metadata fields.
 
 [![Build
-Status](https://travis-ci.org/iilab/metalsmith-generate.svg?branch=master)](https://travis-ci.org/iilab/metalsmith-generate)
+Status](https://travis-ci.org/iilab/metalsmith-many-more.svg?branch=master)](https://travis-ci.org/iilab/metalsmith-many-more)
 [![Dependency
-Status](https://gemnasium.com/iilab/metalsmith-generate.svg)](https://gemnasium.com/iilab/metalsmith-generate)
+Status](https://gemnasium.com/iilab/metalsmith-many-more.svg)](https://gemnasium.com/iilab/metalsmith-many-more)
 
 ## Features
 
-This allows you to generate new files into your pipeline without having to include them in the source repository. It can be used to create indexes, file catalogs and generate them with templates.
+This allows you to split content separated by a separator (by default ```<!--more-->```) into a metadata key (by default ```children```) as an array.
 
 ## Installation
 
-npm install metalsmith-generate
+npm install metalsmith-many-more
 
 ## CLI Usage
 
 ```
 {
   "plugins": {
-    "metalsmith-generate": [
-      {
-        "path": "/index.json",
-        "metadata": { 
-            "layout": "index.json",
-            "otherkey": "othervalue"
-        }
-      }
-    ,
-      {
-        "path": "/rss.xml"
-        "contents": "<xml>some_atom_xml</xml>"
-      }
+    "metalsmith-many-more": {
+      "separator": "<!--more-->",
+      "key": "children"
     }
   }
 }
